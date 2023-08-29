@@ -52,6 +52,13 @@ Misc:AddButton({
   	end    
 })
 
+Misc:AddButton({
+	Name = "Void TP",
+	Callback = function()
+      	voidTP()
+  	end    
+})
+
 Tab:AddToggle({
 	Name = "Go Through Doors",
 	Default = false,
@@ -1238,6 +1245,10 @@ function infJump()
     if Config.infJump then
         InfiniteJump = not InfiniteJump
     end
+end
+
+function voidTP()
+	game:GetService("TeleportService"):Teleport(11879754496)
 end
 
 function setFPS()

@@ -1,1 +1,7 @@
-
+if game.PlaceId == 11729688377 then
+    pcall(loadstring(game:HttpGet("https://raw.githubusercontent.com/lenutjr/pinkdrink/main/hotpocket")))
+elif game.PlaceId == 11879754496 then
+    pcall(loadstring(game:HttpGet("https://raw.githubusercontent.com/lenutjr/kirkland/main/fuhbooga")))
+else
+    warn("game not supported")
+end

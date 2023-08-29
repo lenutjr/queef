@@ -221,6 +221,15 @@ Combat:AddSlider({
 	end    
 })
 
+Combat:AddTextbox({
+	Name = "Killaura Player Exclude",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(chosen)
+		selectedOne = chosen
+	end	  
+})
+
 Combat:AddToggle({
 	Name = "Strafe/LookAt",
 	Default = false,
@@ -587,7 +596,7 @@ function killAura()
             end
             
             for _, player in ipairs(Players:GetPlayers()) do
-                if player ~= localPlayer and player.Character and player.Character.PrimaryPart then
+                if player ~= localPlayer and player.Character and player.Character.PrimaryPart and player.Name ~= selectedOne then
                     local distance = (player.Character.PrimaryPart.Position - localPlayer.Character.PrimaryPart.Position).magnitude
                     
                     if distance < selectedRange and distance < shortestDistance then
@@ -1192,7 +1201,7 @@ function lookAt()
         local closestPlayer = nil
 
         for _, player in pairs(players:GetPlayers()) do
-            if player ~= lp then
+            if player ~= lp and player.Name ~= selectedOne then
                 local otherTorso = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
                 
                 if otherTorso then
